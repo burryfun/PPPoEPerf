@@ -20,7 +20,7 @@ set(OPENSSL_LIBRARIES "/usr/local/ssl/lib")
 
 find_package (Threads REQUIRED)
 find_package (Boost REQUIRED COMPONENTS program_options regex system log_setup log random thread)
-find_package (OpenSSL REQUIRED COMPONENTS crypo)
+find_package (OpenSSL REQUIRED COMPONENTS Crypto)
 
 include_directories(/usr/include)
 include_directories(${Boost_INCLUDE_DIRS})
