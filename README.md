@@ -15,6 +15,35 @@ this program has dependency on boost log,system,program_option,random,regex you 
 if all that haved been install, and cmake also cannot found your boost path, you can specify the boost root with command  
 cmake -DBOOST_ROOT=path  
 
+## Building for Ubuntu 20.04
+
+apt-get update
+apt-get install cmake
+apt-get install vim
+apt-get install wget
+apt-get install git
+apt-get install g++
+git clone https://github.com/iKuaiNetworks/PPPoEPerf.git
+apt-get install libboost-all-dev
+apt install build-essential checkinstall zlib1g-dev -y
+cd /usr/local/src/
+apt-get install libpcap-dev libssl-dev
+wget https://www.openssl.org/source/openssl-1.1.1c.tar.gz
+tar -xf openssl-1.1.1c.tar.gz
+cd openssl-1.1.1c
+./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+make
+make install
+cd /etc/ld.so.conf.d/
+    vim openssl-1.1.1c.conf   :
+            /usr/local/ssl/lib
+ldconfig -v
+mv /usr/bin/c_rehash /usr/bin/c_rehash.backup
+mv /usr/bin/openssl /usr/bin/openssl.backup
+    vim /etc/environment      :
+            PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/ssl/bin"
+source /etc/environment
+
 ## Usage
 
 pppoe_perf -h  
