@@ -1,0 +1,12 @@
+{
+	"interface"  : "ens161",
+	"duration"   : 2000,
+	"padi-cnt"   : 1000,
+	"period"     : 1000,
+	"log"        : "error",
+	"login-rate" : 1,
+
+	"account":{
+		"user"      :  "user"
+	}
+}
